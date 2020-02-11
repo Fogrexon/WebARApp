@@ -126,7 +126,7 @@ tick();
 				controller = renderer.xr.getController( 0 );
 				controller.addEventListener( 'selectstart', onSelectStart );
                 controller.userData.skipFrames = 0;
-                controller.userData.isSelecting = true;
+                controller.userData.isSelecting = false;
 				scene.add( controller );
 
 				//
@@ -153,9 +153,7 @@ tick();
 				cursor.set( 0, 0, - 0.2 ).applyMatrix4( controller.matrixWorld );
 
                 if(controller.userData.isSelecting)
-                {
-                    cursor.set(0,0,-0.2).applyMatrix4(controller.MatrixWorld);
-            
+                {            
                     const geometry = new THREE.SphereGeometry(0.4, 16, 16);
                     const material = new THREE.MeshStandardMaterial({color: 0xffffff, roughness:0.5});
                     const mesh = new THREE.Mesh(geometry, material);
