@@ -12,7 +12,7 @@ import {
 	MeshStandardMaterial,
 	Vector3,
 	VertexColors
-} from '../../../build/three.module.js';
+} from './three.module.js';
 
 function TubePainter() {
 
