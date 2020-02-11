@@ -1,5 +1,5 @@
-import * as THREE from "../jsm/three.module";
-import {ARButton} from "../jsm/ARButton";
+import * as THREE from "../jsm/three.module.js";
+import {ARButton} from "../jsm/ARButton.js";
 
 
 let width = window.innerWidth;
