@@ -154,7 +154,7 @@ tick();
 
                 if(controller.userData.isSelecting)
                 {            
-                    const geometry = new THREE.SphereGeometry(0.4, 16, 16);
+                    const geometry = new THREE.SphereGeometry(0.02, 16, 16);
                     const material = new THREE.MeshStandardMaterial({color: 0xffffff, roughness:0.5});
                     const mesh = new THREE.Mesh(geometry, material);
                     mesh.position.set(cursor.x,cursor.y,cursor.z);
