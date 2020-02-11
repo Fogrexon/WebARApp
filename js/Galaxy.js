@@ -60,11 +60,12 @@ for(let i=0;i<500;i++){
         uRot: {value: new THREE.Vector3(Math.random()*Math.PI*2,Math.random()*Math.PI*2,Math.random()*Math.PI*2)}
     });
 
-    material = new THREE.ShaderMaterial({
-        uniforms: uniforms[i],
-        vertexShader: vertexSource,
-        fragmentShader: fragmentSource
-    });
+    material = new THREE.MeshNormalMaterial();
+    // new THREE.ShaderMaterial({
+    //     uniforms: uniforms[i],
+    //     vertexShader: vertexSource,
+    //     fragmentShader: fragmentSource
+    // });
     material.transparent = true;
     
     cube = new THREE.Mesh(geometry, material);
