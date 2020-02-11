@@ -58,7 +58,7 @@ mat4 rotate(vec3 rot)
 float map(vec3 pos)
 {
     pos = pos;
-    float rot = time * 0.001 + pow(length(pos.xz),0.5)*5.0;
+    float rot = -time * 0.001 + pow(length(pos.xz),0.5)*5.0;
     pos.xz = mat2(cos(rot),-sin(rot),sin(rot),cos(rot)) * pos.xz;
     float a = max(0.0, texture2D(uTex, (pos.xz+vec2(1.0))*0.5).r - 0.1);
     return abs(pos.y) - ((a * 0.1) * (1.0 - length(pos.xz)) * length(pos.xz) + (max(0.0,1.0 - length(pos.xz))+0.001)*0.2);
