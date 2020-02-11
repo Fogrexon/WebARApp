@@ -54,7 +54,7 @@ const onWindowResize = () => {
 
 window.addEventListener('resize', onWindowResize, false);
 
-const geometry = new THREE.SphereGeometry(0.2, 16, 16);
+const geometry = new THREE.SphereGeometry(0.4, 16, 16);
 const material = new THREE.MeshStandardMaterial();
 
 const tick = ()=>{
@@ -63,8 +63,9 @@ const tick = ()=>{
         const cursor = new THREE.Vector3();
         cursor.set(0,0,-0.2).applyMatrix4(controller.MatrixWorld);
         const mesh = new THREE.Mesh(geometry, material);
-        mesh.position.set(cursor);
+        mesh.position.set(cursor.x,cursor.y,cursor.z);
         scene.add(mesh);
+        controller.userData.isSelecting = false;
     }
     renderer.render(scene, camera);
     setTimeout(tick, 1000 / 60);
