@@ -29,6 +29,7 @@ scene.add(light);
 
 const onSelectStart = ()=>{
     this.userData.isSelecting = true;
+    alert("touched");
 }
 
 const controller = renderer.xr.getController(0);
