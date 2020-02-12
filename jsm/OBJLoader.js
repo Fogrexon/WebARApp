@@ -2,7 +2,9 @@
  * @author mrdoob / http://mrdoob.com/
  */
 
-THREE.OBJLoader = ( function () {
+import * as THREE from "../jsm/three.module.js";
+
+var OBJLoader = ( function () {
 
 	// o object_name | g group_name
 	var object_pattern = /^[og]\s*(.+)?/;
@@ -793,3 +795,5 @@ THREE.OBJLoader = ( function () {
 	return OBJLoader;
 
 } )();
+
+export {OBJLoader}

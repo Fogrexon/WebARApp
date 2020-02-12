@@ -3,7 +3,7 @@ import {ARButton} from "../jsm/ARButton.js";
 
 var container;
 var camera, scene, renderer;
-var controller, painter;
+var controller;
 var cursor = new THREE.Vector3();
 
 init();
