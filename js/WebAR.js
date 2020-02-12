@@ -1,7 +1,6 @@
 import * as THREE from "../jsm/three.module.js";
 import {ARButton} from "../jsm/ARButton.js";
 
-/*
 let width = window.innerWidth;
 let height = window.innerHeight;
 
@@ -26,13 +25,13 @@ const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1.0);
 light.position.set(0,1,0);
 scene.add(light);
 
+const controller = renderer.xr.getController(0);
 
 const onSelectStart = ()=>{
-    this.userData.isSelecting = true;
+    controller.userData.isSelecting = true;
     
 }
 
-const controller = renderer.xr.getController(0);
 controller.addEventListener("selectstart", onSelectStart);
 controller.userData.skipFrames = 0;
 controller.userData.isSelecting = false;
@@ -74,7 +73,7 @@ const tick = ()=>{
 
 tick();
 
-*/
+/*
 			var container;
 			var camera, scene, renderer;
 			var controller, painter;
@@ -146,7 +145,7 @@ tick();
 
 			//
 
-			function handleController( controller ) {
+			function handleController() {
 
 				var userData = controller.userData;
 
@@ -177,3 +176,5 @@ tick();
 				renderer.render( scene, camera );
 
 			}
+
+			*/
