@@ -40,22 +40,22 @@ function init() {
     document.body.appendChild( ARButton.createButton( renderer, { requiredFeatures: [ 'hit-test' ] } ) );
     //
 
-    //var geometry = new THREE.CylinderBufferGeometry( 0.1, 0.1, 0.2, 32 ).translate( 0, 0.1, 0 );
-    let carModel;
-    var ObjLoader = new OBJLoader(); 
-    ObjLoader.load("../models/car.obj",  function (object){
-        carModel = object.clone();
-        carModel.scale.set(0.1, 0.1, 0.1);            // 縮尺の初期化
-        carModel.rotation.set(0, 0, 0);         // 角度の初期化
-        carModel.position.set(0, 0, 0);         // 位置の初期化                // sceneに追加
-    });
+    var geometry = new THREE.CylinderBufferGeometry( 0.1, 0.1, 0.2, 32 ).translate( 0, 0.1, 0 );
+    // let carModel;
+    // var ObjLoader = new OBJLoader(); 
+    // ObjLoader.load("../models/car.obj",  function (object){
+    //     carModel = object.clone();
+    //     carModel.scale.set(0.1, 0.1, 0.1);            // 縮尺の初期化
+    //     carModel.rotation.set(0, 0, 0);         // 角度の初期化
+    //     carModel.position.set(0, 0, 0);         // 位置の初期化                // sceneに追加
+    // });
 
     function onSelect() {
 
         if ( reticle.visible && !!carModel) {
 
-            // var material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
-            var mesh = carModel.clone();
+            var material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
+            var mesh = new THREE.Mesh(geometry, material);
             mesh.position.setFromMatrixPosition( reticle.matrix );
             // mesh.scale.y = Math.random() * 2 + 1;
             scene.add( mesh );
