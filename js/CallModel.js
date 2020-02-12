@@ -23,7 +23,7 @@ function init() {
 
     camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
 
-    var light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
+    var light = new THREE.HemisphereLight( 0xffffff, 0x5555aa, 1 );
     light.position.set( 0.5, 1, 0.25 );
     scene.add( light );
 
@@ -45,19 +45,19 @@ function init() {
     var ObjLoader = new OBJLoader(); 
     ObjLoader.load("../models/car.obj",  function (object){
         carModel = object.clone();
-        carModel.scale.set(10, 10, 10);            // 縮尺の初期化
+        carModel.scale.set(1, 1, 1);            // 縮尺の初期化
         carModel.rotation.set(0, 0, 0);         // 角度の初期化
         carModel.position.set(0, 0, 0);         // 位置の初期化                // sceneに追加
     });
 
     function onSelect() {
 
-        if ( reticle.visible ) {
+        if ( reticle.visible && !!carModel) {
 
             // var material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
             var mesh = carModel.clone();
             mesh.position.setFromMatrixPosition( reticle.matrix );
-            mesh.scale.y = Math.random() * 2 + 1;
+            // mesh.scale.y = Math.random() * 2 + 1;
             scene.add( mesh );
 
         }
