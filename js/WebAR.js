@@ -9,7 +9,7 @@ const cursor = new THREE.Vector3();
 const container = document.createElement( 'div' );
 document.body.appendChild( container );
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
+const camera = new THREE.PerspectiveCamera( 70, width/height, 0.01, 20 );
 const renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( width, height );
@@ -23,7 +23,7 @@ light.position.set( 0, 1, 0 );
 scene.add( light );
 
 const onSelectStart = () => {
-	this.userData.isSelecting = true;
+	controller.userData.isSelecting = true;
 }
 
 controller = renderer.xr.getController( 0 );
@@ -49,7 +49,7 @@ const handleController = () => {
 	cursor.set( 0, 0, - 0.2 ).applyMatrix4( controller.matrixWorld );
 
 	if(controller.userData.isSelecting)
-	{            
+	{
 		const geometry = new THREE.SphereGeometry(0.02, 16, 16);
 		const material = new THREE.MeshStandardMaterial({color: 0xffffff, roughness:0.5});
 		const mesh = new THREE.Mesh(geometry, material);
