@@ -52,7 +52,7 @@ function init() {
 
     function onSelect() {
 
-        if ( reticle.visible && !!carModel) {
+        if ( reticle.visible) {
 
             var material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
             var mesh = new THREE.Mesh(geometry, material);
