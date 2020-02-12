@@ -21,7 +21,7 @@ function init() {
 
     scene = new THREE.Scene();
 
-    camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
+    camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 2000 );
 
     var light = new THREE.HemisphereLight( 0xffffff, 0x5555aa, 1 );
     light.position.set( 0.5, 1, 0.25 );
@@ -45,7 +45,7 @@ function init() {
     var ObjLoader = new OBJLoader(); 
     ObjLoader.load("../models/car.obj",  function (object){
         carModel = object.clone();
-        carModel.scale.set(1, 1, 1);            // 縮尺の初期化
+        carModel.scale.set(0.1, 0.1, 0.1);            // 縮尺の初期化
         carModel.rotation.set(0, 0, 0);         // 角度の初期化
         carModel.position.set(0, 0, 0);         // 位置の初期化                // sceneに追加
     });
