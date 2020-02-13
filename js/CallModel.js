@@ -56,8 +56,8 @@ function init() {
 
             // var material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
             var mesh = carModel.clone();
-            // mesh.position.setFromMatrixPosition( reticle.matrix );
-            mesh.position.set(reticle.position.x,reticle.position.y,reticle.position.z);
+            mesh.position.setFromMatrixPosition( reticle.matrix );
+            //mesh.position.set(reticle.position.x,reticle.position.y,reticle.position.z);
             // mesh.scale.y = Math.random() * 2 + 1;
             scene.add( mesh );
 
