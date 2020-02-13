@@ -51,7 +51,7 @@ const onSelect = () => {
 
 };
 
-controller = renderer.xr.getController( 0 );
+const controller = renderer.xr.getController( 0 );
 controller.addEventListener( 'select', onSelect );
 scene.add( controller );
 
