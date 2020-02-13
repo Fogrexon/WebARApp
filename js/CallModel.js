@@ -43,7 +43,7 @@ function init() {
     //var geometry = new THREE.CylinderBufferGeometry( 0.1, 0.1, 0.2, 32 ).translate( 0, 0.1, 0 );
     let carModel;
     var ObjLoader = new OBJLoader(); 
-    ObjLoader.load("../models/car.obj",  function (object){
+    ObjLoader.load("./models/car.obj",  function (object){
         carModel = object.clone();
         carModel.scale.set(1, 1, 1);            // 縮尺の初期化
         carModel.rotation.set(0, 0, 0);         // 角度の初期化
