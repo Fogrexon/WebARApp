@@ -69,10 +69,6 @@ const onWindowResize = ()=>{
 window.addEventListener( 'resize', onWindowResize, false );
 
 
-const render = () => {
-
-}
-
 
 
 
