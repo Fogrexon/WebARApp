@@ -1,3 +1,5 @@
+"use strict";
+
 import * as THREE from "../jsm/three.module.js";
 import {ARButton} from "../jsm/ARButton.js";
 import {OBJLoader} from "../jsm/OBJLoader.js";
@@ -72,7 +74,7 @@ window.addEventListener( 'resize', onWindowResize, false );
 
 
 
-
+let hitTestSource;
 let hitTestSourceRequested = false
 
 const render = ( timestamp, frame ) => {
