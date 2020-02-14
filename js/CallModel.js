@@ -31,7 +31,7 @@ document.body.appendChild(ARButton.createButton(renderer, {requiredFeatures: ["h
 let zunko, mixer;
 var loader = new GLTFLoader();
 
-loader.load("../models/zunko.gltf", (object)=>{
+loader.load("./models/zunko.gltf", (object)=>{
     const gltf = object;
     zunko = gltf.scene;
     const animations = gltf.animations;
