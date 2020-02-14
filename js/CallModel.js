@@ -44,7 +44,7 @@ loader.load("./models/zunko.gltf", (object)=>{
             mixer.clipAction(animations[i]).play();
         }
     }
-    zunko.scale.set(0.1,0.1,0.1);
+    zunko.scale.set(0.01,0.01,0.01);
     zunko.position.set(10000,10000,10000);
     scene.add(zunko);
 },()=>{
