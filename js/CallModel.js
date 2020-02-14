@@ -2,11 +2,12 @@
 
 import * as THREE from "../jsm/three.module.js";
 import {ARButton} from "../jsm/ARButton.js";
-import {OBJLoader} from "../jsm/OBJLoader.js";
+import {GLTFLoader} from "../jsm/GLTFLoader.js";
 
 const container = document.createElement("div");
 document.body.appendChild(container);
 
+const clock = new THREE.Clock();
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 2000);
 const light = new THREE.HemisphereLight(0xffffff, 0x5555aa, 1.0);
@@ -27,13 +28,31 @@ container.appendChild(renderer.domElement);
 
 document.body.appendChild(ARButton.createButton(renderer, {requiredFeatures: ["hit-test"]}));
 
-let carModel;
-new OBJLoader().load("./models/car.obj", (object)=>{
-    carModel = object.clone();
-    carModel.position.set(0,0,0);
-    carModel.rotation.set(0,0,0);
-    carModel.scale.set(0.03,0.03,0.03);
-});
+let zunko, mixer;
+var loader = new GLTFLoader();
+
+loader.load("../models/zunko.gltf", (object)=>{
+    const gltf = object;
+    zunko = gltf.scene;
+    const animations = gltf.animations;
+
+    if(animations && animations.length)
+    {
+        mixer = new THREE.AnimationMixer(zunko);
+        for(let i=0;i<animations.length;i++)
+        {
+            mixer.clipAction(animations[i]).play();
+        }
+    }
+    zunko.scale.set(0.1,0.1,0.1);
+    zunko.position.set(10000,10000,10000);
+    scene.add(zunko);
+},()=>{
+    console.log("load");
+},()=>{
+    console.log("error");
+}
+);
 
 const reticle = new THREE.Mesh(
     new THREE.RingBufferGeometry(0.15, 0.2, 32).rotateX(-Math.PI/2),
@@ -45,10 +64,8 @@ scene.add(reticle);
 
 const onSelect = () => {
 
-    if ( reticle.visible && !!carModel) {
-        var mesh = carModel.clone();
-        mesh.position.setFromMatrixPosition( reticle.matrix );
-        scene.add( mesh );
+    if ( reticle.visible && !!zunko) {
+        zunko.position.setFromMatrixPosition( reticle.matrix );
     }
 
 };
@@ -78,6 +95,11 @@ let hitTestSource;
 let hitTestSourceRequested = false
 
 const render = ( timestamp, frame ) => {
+
+    if(mixer)
+    {
+        mixer.update(clock.getDelta());
+    }
 
     if ( frame ) {
 
@@ -125,4 +147,4 @@ const render = ( timestamp, frame ) => {
 
 }
 
-renderer.setAnimationLoop(render)
+renderer.setAnimationLoop(render);
