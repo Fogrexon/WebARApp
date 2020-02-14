@@ -21,7 +21,7 @@ document.body.appendChild( renderer.domElement );
 
 let carModel;
 var ObjLoader = new OBJLoader();
-ObjLoader.load("../models/car.obj",  function (object){
+ObjLoader.load("../models/diamond.obj",  function (object){
     carModel = object.clone();
     // carModel = object.clone();
     carModel.scale.set(1, 1, 1);            // 縮尺の初期化
